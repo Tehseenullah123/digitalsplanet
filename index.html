@@ -49,6 +49,37 @@
     .nav-links a:hover {
       color: var(--primary-color);
     }
+    /* Mobile Navigation */
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+      background-color: #1f2937;
+      text-align: center;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+    }
+
+    #mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    #mobile-menu a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
 
     /* Bounce Animation */
     @keyframes bounce {
