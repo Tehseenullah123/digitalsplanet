@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Planet - Premium Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #9acd32;
+    }
+
+    /* Header and Navigation */
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #1f2937;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Mobile Navigation */
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+      background-color: #1f2937;
+      text-align: center;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+    }
+
+    #mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    #mobile-menu a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+           /* Add glow animation first */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px var(--primary-color); }
+      50% { text-shadow: 0 0 20px var(--primary-color); }
+      100% { text-shadow: 0 0 10px var(--primary-color); }
+    }
+
+    .glow-text {
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    /* Then modify service cards */
+    .service-card {
+      display: block;
+      cursor: pointer;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 1rem;
+      background-color: #1f2937;
+      border: 1px solid #374151;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    }
+
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--primary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Navigation Bar -->
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <img src="logo.png" alt="Digital Planet Logo" class="nav-logo"/>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-[var(--primary-color)]">Digital Planet</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div class="text-center px-4">
+      <h2 class="text-5xl font-extrabold text-[var(--primary-color)] mb-6">Premium Digital Services</h2>
+      <p class="text-xl text-gray-300 mb-8">YouTube Premium, Netflix, Spotify & more at unbeatable prices</p>
+      <a href="#services" class="inline-block bg-[var(--primary-color)] hover:bg-green-500 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg">Explore Offers ➔</a>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-gray-900/50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-color)] mb-16">Featured Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- YouTube Premium -->
+        <a href="https://api.whatsapp.com/send/?phone=923251608082&text=YouTube+Premium+Subscription&type=phone_number&app_absent=0" class="service-card" data-aos="zoom-in">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-12" alt="YouTube"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">YouTube Premium</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">Rs200</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Ad-free videos</li>
+            <li>✔ Offline downloads</li>
+            <li>✔ YouTube Music Premium</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">Start Watching →</p>
+        </a>
+        <!-- Netflix Premium -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732228.png" class="w-12" alt="Netflix"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Netflix Premium</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$15</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Ultra HD Streaming</li>
+            <li>✔ 4 Screens Simultaneous</li>
+            <li>✔ Unlimited Movies & Shows</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Streaming →
+          </p>
+        </a>
+
+        <!-- Spotify Premium -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" class="w-12" alt="Spotify"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Spotify Premium</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$9</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Ad-free Music</li>
+            <li>✔ Offline Listening</li>
+            <li>✔ High Quality Audio</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Listening →
+          </p>
+        </a>
+
+        <!-- Disney+ Premium -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/5272/5272936.png" class="w-12" alt="Disney+"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Disney+ Premium</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$10</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ 4K Ultra HD</li>
+            <li>✔ Disney, Pixar, Marvel & Star Wars</li>
+            <li>✔ GroupWatch & Downloads</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Binging →
+          </p>
+        </a>
+
+        <!-- Amazon Prime Video -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/5977/5977581.png" class="w-12" alt="Prime Video"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Amazon Prime Video</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$13</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Exclusive Amazon Originals</li>
+            <li>✔ 4K and HDR Streaming</li>
+            <li>✔ Watch on multiple devices</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Watching →
+          </p>
+        </a>
+
+        <!-- Apple TV+ -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="500">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/7310/7310645.png" class="w-12" alt="Apple TV+"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Apple TV+</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$5</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Exclusive Apple Originals</li>
+            <li>✔ 4K HDR</li>
+            <li>✔ Dolby Atmos</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Streaming →
+          </p>
+        </a>
+
+        <!-- HBO Max -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="600">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/1457/1457150.png" class="w-12" alt="HBO Max"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">HBO Max</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$14</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Extensive Warner Bros Library</li>
+            <li>✔ HBO Originals</li>
+            <li>✔ 4K Streaming</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Streaming →
+          </p>
+        </a>
+
+        <!-- Hulu -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="700">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" class="w-12" alt="Hulu"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Hulu</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$12</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Next-day TV Episodes</li>
+            <li>✔ Hulu Originals</li>
+            <li>✔ Option for Live TV</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Watching →
+          </p>
+        </a>
+
+        <!-- Tidal HiFi -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="800">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111631.png" class="w-12" alt="Tidal"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Tidal HiFi</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$20</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ High-Fidelity Sound</li>
+            <li>✔ Hi-Res Streaming</li>
+            <li>✔ Exclusive Content</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Listening →
+          </p>
+        </a>
+
+        <!-- Paramount+ -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="900">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/3425/3425635.png" class="w-12" alt="Paramount+"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Paramount+</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$10</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Paramount, CBS, & Nickelodeon</li>
+            <li>✔ 4K Streaming</li>
+            <li>✔ Offline Downloads</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Streaming →
+          </p>
+        </a>
+
+        <!-- Crunchyroll Premium -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="1000">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/6495/6495716.png" class="w-12" alt="Crunchyroll"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Crunchyroll Premium</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$8</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ Simulcast Access</li>
+            <li>✔ No Ads</li>
+            <li>✔ Exclusive Anime</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Start Watching →
+          </p>
+        </a>
+
+        <!-- Discord Nitro -->
+        <a href="#" class="service-card" data-aos="zoom-in" data-aos-delay="1100">
+          <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-12" alt="Discord Nitro"/>
+          </div>
+          <h3 class="text-xl font-bold mt-6 text-center">Discord Nitro</h3>
+          <div class="my-4 text-center">
+            <span class="text-2xl font-bold text-[var(--primary-color)]">$10</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>✔ HD Streaming</li>
+            <li>✔ Custom Emojis</li>
+            <li>✔ Server Boosting</li>
+          </ul>
+          <p class="mt-4 text-center text-sm font-semibold text-[var(--primary-color)]">
+            Go Nitro →
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-color)] mb-8">
+        Get Instant Access
+      </h2>
+      <p class="text-center text-gray-300 mb-12">
+        Have questions? Our team is ready to help you 24/7
+      </p>
+      <form 
+        id="contactForm" 
+        class="space-y-6"
+        onsubmit="sendToWhatsApp(event)"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
+                   focus:border-[var(--primary-color)] focus:ring-2 
+                   focus:ring-[var(--primary-color)] outline-none transition-all"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+            class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700
+                   focus:border-[var(--primary-color)] focus:ring-2 
+                   focus:ring-[var(--primary-color)] outline-none transition-all"
+            required
+          />
+        </div>
+        <textarea
+          id="message"
+          rows="5"
+          placeholder="Your Message"
+          class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
+                 focus:border-[var(--primary-color)] focus:ring-2 
+                 focus:ring-[var(--primary-color)] outline-none transition-all"
+          required
+        ></textarea>
+        <button
+          type="submit"
+          class="w-full bg-[var(--primary-color)] hover:bg-green-500 text-gray-900 
+                 px-8 py-4 rounded-xl font-bold text-lg transition-all 
+                 transform hover:scale-[1.02]"
+        >
+          Send Message ➔
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get user inputs
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    // Format the message for WhatsApp
+    var whatsappMessage = `Hello, I have a query:\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+
+    // Your WhatsApp phone number
+    var phoneNumber = "923251608082"; // WhatsApp number (without +)
+
+    // Create WhatsApp URL
+    var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappURL, "_blank");
+  }
+</script>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900/80 py-12">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">Digital Planet</h3>
+      <p class="text-gray-400">Your Gateway to Premium Digital Experiences</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+        <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors"><i class="fab fa-twitter text-2xl"></i></a>
+        <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
+      </div>
+      <p class="text-gray-400 mt-8">&copy; 2025 Digital Planet. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+  </script>
+  <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</body>
+</html>
