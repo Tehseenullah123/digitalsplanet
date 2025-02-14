@@ -448,56 +448,86 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto" data-aos="fade-up">
-        <h2 class="text-4xl font-bold text-center text-[var(--primary-color)] mb-8">
-          Get Instant Access
-        </h2>
-        <p class="text-center text-gray-300 mb-12">
-          Have questions? Our team is ready to help you 24/7
-        </p>
-        <form 
-          action="mailto:tehseenullah123@gmail.com"
-          method="POST"
-          enctype="text/plain"
-          class="space-y-6"
-        >
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              placeholder="Your Name"
-              class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
-                     focus:border-[var(--primary-color)] focus:ring-2 
-                     focus:ring-[var(--primary-color)] outline-none transition-all"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700
-                     focus:border-[var(--primary-color)] focus:ring-2 
-                     focus:ring-[var(--primary-color)] outline-none transition-all"
-            />
-          </div>
-          <textarea
-            rows="5"
-            placeholder="Your Message"
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-color)] mb-8">
+        Get Instant Access
+      </h2>
+      <p class="text-center text-gray-300 mb-12">
+        Have questions? Our team is ready to help you 24/7
+      </p>
+      <form 
+        id="contactForm" 
+        class="space-y-6"
+        onsubmit="sendToWhatsApp(event)"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
             class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
                    focus:border-[var(--primary-color)] focus:ring-2 
                    focus:ring-[var(--primary-color)] outline-none transition-all"
-          ></textarea>
-          <button
-            class="w-full bg-[var(--primary-color)] hover:bg-green-500 text-gray-900 
-                   px-8 py-4 rounded-xl font-bold text-lg transition-all 
-                   transform hover:scale-[1.02]"
-          >
-            Send Message ➔
-          </button>
-        </form>
-      </div>
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+            class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700
+                   focus:border-[var(--primary-color)] focus:ring-2 
+                   focus:ring-[var(--primary-color)] outline-none transition-all"
+            required
+          />
+        </div>
+        <textarea
+          id="message"
+          rows="5"
+          placeholder="Your Message"
+          class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
+                 focus:border-[var(--primary-color)] focus:ring-2 
+                 focus:ring-[var(--primary-color)] outline-none transition-all"
+          required
+        ></textarea>
+        <button
+          type="submit"
+          class="w-full bg-[var(--primary-color)] hover:bg-green-500 text-gray-900 
+                 px-8 py-4 rounded-xl font-bold text-lg transition-all 
+                 transform hover:scale-[1.02]"
+        >
+          Send Message ➔
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get user inputs
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    // Format the message for WhatsApp
+    var whatsappMessage = `Hello, I have a query:\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+
+    // Your WhatsApp phone number
+    var phoneNumber = "923251608082"; // WhatsApp number (without +)
+
+    // Create WhatsApp URL
+    var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappURL, "_blank");
+  }
+</script>
+
 
   <!-- Footer -->
   <footer class="bg-gray-900/80 py-12">
