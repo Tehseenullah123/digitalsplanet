@@ -11,7 +11,7 @@
       --primary-color: #9acd32;
     }
 
-    /* Header and Navigation */
+    /* Navigation Styles */
     .nav-container {
       display: flex;
       justify-content: space-between;
@@ -34,6 +34,7 @@
       height: 40px;
     }
 
+    /* Desktop Navigation */
     .nav-links {
       display: flex;
       gap: 20px;
@@ -49,39 +50,44 @@
     .nav-links a:hover {
       color: var(--primary-color);
     }
+
     /* Mobile Navigation */
-    #mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 15px;
-      padding: 15px;
-      background-color: #1f2937;
-      text-align: center;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-    }
-
-    #mobile-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    #mobile-menu a:hover {
-      color: var(--primary-color);
-    }
-
-    /* Hamburger Button */
     .hamburger {
-      display: none;
+      display: none; /* Hidden by default */
       font-size: 1.8rem;
       color: white;
       cursor: pointer;
     }
 
-    /* Bounce Animation */
+    #mobile-menu {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #1f2937;
+      padding: 1rem;
+      border-top: 1px solid #374151;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Show mobile menu and hamburger only in mobile view */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Hide desktop menu on mobile */
+      }
+
+      .hamburger {
+        display: block; /* Show hamburger icon */
+      }
+
+      #mobile-menu.active {
+        display: flex; /* Show mobile menu when active */
+      }
+    }
+
+    /* Animations */
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       25% { transform: translateY(-10px); }
@@ -93,7 +99,6 @@
       animation: bounce 1.5s infinite ease-in-out;
     }
 
-    /* Glow Animation */
     @keyframes glow {
       0% { text-shadow: 0 0 10px var(--primary-color); }
       50% { text-shadow: 0 0 20px var(--primary-color); }
@@ -120,31 +125,36 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px var(--primary-color);
     }
-
-    /* Animation for Featured Services */
-    .featured-heading {
-      animation: glow 1.5s infinite ease-in-out;
-    }
-
   </style>
 </head>
 
 <body class="bg-gray-900 text-white">
-
   <!-- Navigation Bar -->
   <nav class="nav-container">
     <div class="nav-brand">
       <img src="logo.png" alt="Digital Planet Logo" class="nav-logo"/>
       <h1 class="text-2xl md:text-3xl font-extrabold text-[var(--primary-color)]">Digital Planet</h1>
     </div>
+    
+    <!-- Desktop Navigation -->
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <!-- Mobile Hamburger -->
+    <div class="hamburger">☰</div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
-  <!-- Hero Section with Bounce Animation -->
+  <!-- Hero Section -->
   <header class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
     <div class="text-center px-4">
       <h2 class="text-5xl font-extrabold text-[var(--primary-color)] mb-6 bounce-text">
@@ -201,7 +211,7 @@
         </a>
 
         <!-- Spotify Premium -->
-        <a href="#" class="service-card" data-aos="fade-left" data-aos-delay="200">
+        <a href="#" class="service-card" data-aos="fade-right" data-aos-delay="200">
           <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
             <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" class="w-12" alt="Spotify"/>
           </div>
@@ -221,7 +231,7 @@
         </a>
 
         <!-- Disney+ Premium -->
-        <a href="#" class="service-card" data-aos="fade-left" data-aos-delay="300">
+        <a href="#" class="service-card" data-aos="fade-right" data-aos-delay="300">
           <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
             <img src="https://cdn-icons-png.flaticon.com/512/5272/5272936.png" class="w-12" alt="Disney+"/>
           </div>
@@ -281,7 +291,7 @@
         </a>
 
         <!-- HBO Max -->
-        <a href="#" class="service-card" data-aos="fade-left" data-aos-delay="600">
+        <a href="#" class="service-card" data-aos="fade-right" data-aos-delay="600">
           <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
             <img src="https://cdn-icons-png.flaticon.com/512/1457/1457150.png" class="w-12" alt="HBO Max"/>
           </div>
@@ -301,7 +311,7 @@
         </a>
 
         <!-- Hulu -->
-        <a href="#" class="service-card" data-aos="fade-left" data-aos-delay="700">
+        <a href="#" class="service-card" data-aos="fade-right" data-aos-delay="700">
           <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
             <img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" class="w-12" alt="Hulu"/>
           </div>
@@ -361,7 +371,7 @@
         </a>
 
         <!-- Crunchyroll Premium -->
-        <a href="#" class="service-card" data-aos="fade-left" data-aos-delay="1000">
+        <a href="#" class="service-card" data-aos="fade-right" data-aos-delay="1000">
           <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
             <img src="https://cdn-icons-png.flaticon.com/512/6495/6495716.png" class="w-12" alt="Crunchyroll"/>
           </div>
@@ -381,7 +391,7 @@
         </a>
 
         <!-- Discord Nitro -->
-        <a href="#" class="service-card" data-aos="fade-left" data-aos-delay="1100">
+        <a href="#" class="service-card" data-aos="fade-right" data-aos-delay="1100">
           <div class="w-24 h-24 bg-[var(--primary-color)]/10 rounded-2xl flex items-center justify-center mx-auto">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-12" alt="Discord Nitro"/>
           </div>
@@ -404,123 +414,66 @@
     </div>
   </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto" data-aos="fade-up">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-color)] mb-8">
-        Get Instant Access
-      </h2>
-      <p class="text-center text-gray-300 mb-12">
-        Have questions? Our team is ready to help you 24/7
-      </p>
-      <form id="contactForm" class="space-y-6" onsubmit="handleFormSubmission(event)">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <input
-            type="text"
-            id="name"
-            placeholder="Your Name"
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up">
+        <h2 class="text-4xl font-bold text-center text-[var(--primary-color)] mb-8">
+          Get Instant Access
+        </h2>
+        <p class="text-center text-gray-300 mb-12">
+          Have questions? Our team is ready to help you 24/7
+        </p>
+        <form id="contactForm" class="space-y-6" onsubmit="handleFormSubmission(event)">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              id="name"
+              placeholder="Your Name"
+              class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
+                     focus:border-[var(--primary-color)] focus:ring-2 
+                     focus:ring-[var(--primary-color)] outline-none transition-all"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              placeholder="Your Email"
+              class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700
+                     focus:border-[var(--primary-color)] focus:ring-2 
+                     focus:ring-[var(--primary-color)] outline-none transition-all"
+              required
+            />
+          </div>
+          <textarea
+            id="message"
+            rows="5"
+            placeholder="Your Message"
             class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
                    focus:border-[var(--primary-color)] focus:ring-2 
                    focus:ring-[var(--primary-color)] outline-none transition-all"
             required
-          />
-          <input
-            type="email"
-            id="email"
-            placeholder="Your Email"
-            class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700
+          ></textarea>
+          <select 
+            id="contactMethod" 
+            class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 text-white 
                    focus:border-[var(--primary-color)] focus:ring-2 
-                   focus:ring-[var(--primary-color)] outline-none transition-all"
-            required
-          />
-        </div>
-
-        <!-- Message Input -->
-        <textarea
-          id="message"
-          rows="5"
-          placeholder="Your Message"
-          class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 
-                 focus:border-[var(--primary-color)] focus:ring-2 
-                 focus:ring-[var(--primary-color)] outline-none transition-all"
-          required
-        ></textarea>
-
-        <!-- Choose Submission Method -->
-        <select 
-          id="contactMethod" 
-          class="w-full p-4 bg-gray-800 rounded-xl border-2 border-gray-700 text-white 
-                 focus:border-[var(--primary-color)] focus:ring-2 
-                 focus:ring-[var(--primary-color)] outline-none transition-all">
-          <option value="whatsapp">Send via WhatsApp</option>
-          <option value="email">Send via Email</option>
-        </select>
-
-        <!-- Submit Button -->
-        <button
-          type="submit"
-          class="w-full bg-[var(--primary-color)] hover:bg-green-500 text-gray-900 
-                 px-8 py-4 rounded-xl font-bold text-lg transition-all 
-                 transform hover:scale-[1.02]"
-        >
-          Send Message ➔
-        </button>
-      </form>
+                   focus:ring-[var(--primary-color)] outline-none transition-all">
+            <option value="whatsapp">Send via WhatsApp</option>
+            <option value="email">Send via Email</option>
+          </select>
+          <button
+            type="submit"
+            class="w-full bg-[var(--primary-color)] hover:bg-green-500 text-gray-900 
+                   px-8 py-4 rounded-xl font-bold text-lg transition-all 
+                   transform hover:scale-[1.02]"
+          >
+            Send Message ➔
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
-
-<script>
-  function handleFormSubmission(event) {
-    event.preventDefault(); // Prevent form submission
-
-    // Get user inputs
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-    var contactMethod = document.getElementById("contactMethod").value;
-
-    // Format the message
-    var formattedMessage = `Hello,\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
-
-    if (contactMethod === "whatsapp") {
-      // Send via WhatsApp
-      var phoneNumber = "923251608082"; // WhatsApp number (without +)
-      var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(formattedMessage)}`;
-      window.open(whatsappURL, "_blank");
-    } else {
-      // Send via Email
-      var mailtoLink = `mailto:support@example.com?subject=Contact Request from ${name}&body=${encodeURIComponent(formattedMessage)}`;
-      window.open(mailtoLink, "_blank");
-    }
-  }
-</script>
-
-</section>
-
-<script>
-  function sendToWhatsApp(event) {
-    event.preventDefault(); // Prevent form submission
-
-    // Get user inputs
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-
-    // Format the message for WhatsApp
-    var whatsappMessage = `Hello, I have a query:\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
-
-    // Your WhatsApp phone number
-    var phoneNumber = "923251608082"; // WhatsApp number (without +)
-
-    // Create WhatsApp URL
-    var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Redirect to WhatsApp
-    window.open(whatsappURL, "_blank");
-  }
-</script>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-900/80 py-12">
@@ -538,8 +491,25 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nav-container')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    });
+
+    // Initialize animations
     AOS.init({ duration: 400, once: true, easing: "ease-in-out" });
   </script>
-  <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </body>
 </html>
